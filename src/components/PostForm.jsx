@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { submitPost } from "../api/auth";
 
-const cohort = '2211-ftb-et-web-ft';
+
 
 
 const PostForm = (token, posts, setPosts) => {

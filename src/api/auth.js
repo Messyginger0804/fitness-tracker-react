@@ -1,9 +1,9 @@
-const cohort = '2211-ftb-et-web-ft';
+const api = 'https://fitnesstrac-kr.herokuapp.com';
 
 export const registerUser = async (username, password) => {
     try {
         const response = await fetch(
-            `https://strangers-things.herokuapp.com/api/${cohort}/users/register/`,
+            api,
             {
                 method: "POST",
                 headers: {
@@ -28,7 +28,8 @@ export const registerUser = async (username, password) => {
 
 export const login = async (username, password) => {
     try {
-        const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/users/login`, 
+        const response = await fetch(
+            api, 
         {
             method: "POST",
             headers: {
@@ -53,7 +54,7 @@ export const login = async (username, password) => {
 export const submitPost = async (title, desc, price, location, deliver, {token, posts, setPosts}) => {
     try {
         console.log(token);
-        const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/posts`, 
+        const response = await fetch(api, 
         {
             method: 'POST',
             headers: {
@@ -70,7 +71,7 @@ export const submitPost = async (title, desc, price, location, deliver, {token, 
                 }
             }),
         });
-        const reply = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/posts`)
+        const reply = await fetch(api)
         const rep = await reply.json();
         setPosts(rep.data.posts);
         const { success } = await response.json();
@@ -82,7 +83,7 @@ export const submitPost = async (title, desc, price, location, deliver, {token, 
 
 export const deletePost = async (token, postId, setPosts) => {
     try {
-        const var3 = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/posts/${postId}`, {
+        const var3 = await fetch(api, {
             method: "DELETE",
             headers: {
               'Content-Type': 'application/json',
@@ -90,7 +91,7 @@ export const deletePost = async (token, postId, setPosts) => {
             }
           });
         const var4 = await var3.json();
-        const reply = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/posts`)
+        const reply = await fetch(api)
         const rep = await reply.json();
         setPosts(rep.data.posts);
         return var4.success;
@@ -101,7 +102,7 @@ export const deletePost = async (token, postId, setPosts) => {
 
 export const getUserId = async (token) => {
     try {
-        const var1 = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/users/me`, {
+        const var1 = await fetch(api, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`
@@ -121,7 +122,7 @@ export const getUserId = async (token) => {
 
 export const sendMessage = async (token, postId, message) => {
     try {
-        const var5 = await fetch(`https://strangers-things.herokuapp.com/api/${cohort}/posts/${postId}/messages`, {
+        const var5 = await fetch(api, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -143,3 +144,4 @@ export const sendMessage = async (token, postId, message) => {
         console.error(error);
     }
 }
+export default api

@@ -39,7 +39,12 @@ function App() {
         {token &&
           <Route path='profile' element={<Profile token={ token } setToken={ setToken } />} />
         }
-        <Route path='*' element={<Navigate replace to='/' />} />
+        <Route path='*' element={<Navigate replace to='/' />}
+
+        // {!token &&
+        //   <Route path='/routines' element={ <Routines /> } />//not made yet!!!!!
+        // }
+        />
         
       </Routes>
     </div>

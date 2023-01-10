@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { deletePost, sendMessage } from "../api/auth";
+import api from "../api/auth";
 
-const cohort = '2211-ftb-et-web-ft';
 
 const Posts = ({posts, setPosts, token, userId}) => {
     const [message, setMessage] = useState('');
@@ -9,7 +9,7 @@ const Posts = ({posts, setPosts, token, userId}) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        fetch(`https://strangers-things.herokuapp.com/api/${cohort}/posts`,{
+        fetch(api,{
             headers: {
                 'Authorization':`Bearer ${token}`
             }
