@@ -1,31 +1,31 @@
 import React from 'react';
-import Posts from '../components/Posts';
+import Posts from '../components/Routines';
 import LogMeOut from '../components/LogMeOut';
-import PostForm from '../components/PostForm';
+// import PostForm from '../components/PostForm';
 
-const Home = ({token, posts, setPosts, userId, setToken}) => {
-  return (
-    <>
-    { token &&
-        <LogMeOut
-            token={ token } 
-            setToken={ setToken }/>
-    }
-        <Posts 
+const Home = ({ token, posts, setPosts, userId, setToken }) => {
+    return (
+        <>
+            {token &&
+                <LogMeOut
+                    token={token}
+                    setToken={setToken} />
+            }
+            {/* <Posts 
             token={ token } 
             posts={ posts } 
             setPosts={ setPosts }
             userId={ userId }
-        />
-    { token &&
+        /> */}
+            {/* { token &&
         <PostForm 
             token={ token } 
             posts={ posts } 
             setPosts={ setPosts }
         />
-    }
-    </>
-  );
+    } */}
+        </>
+    );
 };
 
 export default Home;
