@@ -5,7 +5,7 @@
 /home /routines /my routines /activities /login + register
 
 ** unregistered user **
-* see a sign in/sign up form on the header, footer, tab, or a modal 
+* see a sign in/sign up form on the header, footer, tab, or a modal
 * be able to sign up with a valid username and password that are at least 8 characters long 
 * see the messages if their are any errors with the login process 
 * see tabbed navigation for routines activites with matching routes *

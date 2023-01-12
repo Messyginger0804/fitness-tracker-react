@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import api from "../api/auth";
 
-const RoutineView = ({ token }) => {
+const RoutinesView = ({ token }) => {
     const [personalRoutines, setpersonalRoutines] = useState([]);
 
     useEffect(() => {
-        fetch(api, {
+        fetch(
+            `${api}/`
+            , {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
@@ -47,4 +49,4 @@ const RoutineView = ({ token }) => {
     );
 };
 
-export default RoutineView;
+export default RoutinesView;
