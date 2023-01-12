@@ -1,5 +1,5 @@
-import PostView from "../components/PostView";
-import PostViewMessageView from "../components/MessageView";
+// import PostView from "../components/PostView";
+import RoutinesView from "../components/RoutinesView";
 import LogMeOut from "../components/LogMeOut";
 
 const Profile = ({token, setToken}) => {
@@ -11,8 +11,8 @@ const Profile = ({token, setToken}) => {
             setToken={ setToken }/>
         }
         <h1>Profile</h1>
-        <PostView token={ token } />
-        <MessageView token={ token } />
+        <RoutinesView token={ token } />
+
       </div>
     );
   };

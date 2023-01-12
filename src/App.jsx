@@ -7,6 +7,7 @@ import Profile from "./Pages/Profile";
 import Register from "./components/RegisterUser";
 import LogMeIn from "./components/LogMeIn";
 import Navbar from "./Pages/NavBar";
+import Routines from "./components/Routines";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -36,6 +37,11 @@ function App() {
         {!token &&
           <Route path='/login' element={ <LogMeIn setToken={ setToken } setUserId={ setUserId } /> } />
         }
+
+        {!token &&
+          <Route path='/routines' element={ <Routines  /> } />
+        }
+
         {token &&
           <Route path='profile' element={<Profile token={ token } setToken={ setToken } />} />
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Posts from '../components/Routines';
 import LogMeOut from '../components/LogMeOut';
+import Routines from '../components/Routines';
 // import PostForm from '../components/PostForm';
 
 const Home = ({ token, posts, setPosts, userId, setToken }) => {
@@ -12,12 +13,12 @@ const Home = ({ token, posts, setPosts, userId, setToken }) => {
                     token={token}
                     setToken={setToken} />
             }
-            {/* <Posts 
+            <Routines 
             token={ token } 
-            posts={ posts } 
+            routines={ posts } 
             setPosts={ setPosts }
             userId={ userId }
-        /> */}
+        />
             {/* { token &&
         <PostForm 
             token={ token } 

@@ -17,6 +17,7 @@ export const registerUser = async (username, password) => {
                 }),
             }
         );
+        console.log(response)
         const { token } = await response.json();
         return token;
     } catch (error) {
@@ -38,7 +39,7 @@ export const login = async (username, password) => {
                     password
                 })
             });
-        const { token } = await response.json();
+        const {token} = await response.json();
         return token;
     } catch (error) {
         console.error(error);
@@ -48,33 +49,27 @@ export const login = async (username, password) => {
 // export const submitRoutines = async (title, desc, price, location, deliver, { token, routines, setRoutines }) => {
 //     try {
 //         console.log(token);
+
+//         const response = await fetch(
+//             `${api} / routines`
+//             {
 //         const response = await fetch(`${api} / routines`)
 //         {
-//             method: 'POST',
-//                 headers: {
-//                 'Content-Type': 'application/json',
-//                     'Authorization': `Bearer ${token}`
+
+//             },
 //             }
-//             body: JSON.stringify({
-//                 routines: {
-//                     title: `${title}`,
-//                     description: `${desc}`,
-//                     price: `${price}`,
-//                     location: `${location}`,
-//                     willDeliver: `${deliver}`
-//                 }
+
+
+//             }),}
+//             );
+//         const reply = await fetch(api)
+//         const rep = await reply.json();
+//         setRoutines(rep.routines);
 //             }),
 //             });
 //         const reply = await fetch(api)
 //         const rep = await reply.json();
 //         setPosts(rep.data.posts);
-//         const { success } = await response.json();
-//         return success;
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-
 export const deletePost = async (token, postId, setPosts) => {
     try {
         const var3 = await fetch(api, {
@@ -96,17 +91,17 @@ export const deletePost = async (token, postId, setPosts) => {
 
 export const getUserId = async (token) => {
     try {
-        const var1 = await fetch(api, {
+        const var1 = await fetch(`${api}/users/me`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
         })
         const var2 = await var1.json();
-        console.log(var2.data.posts);
-        console.log(var2.data.messages);
-        console.log(var2.data._id);
-        return var2.data._id;
+        // console.log(var2.data.posts);
+        // console.log(var2.data.messages);
+        // console.log(var2.data._id);
+        return var2._id;
     } catch (error) {
         console.error(error);
     }
