@@ -1,20 +1,20 @@
 <!-- *** what we need to get this bad boy to be passing! ***
-* see the route i am visiting in the url bar
-* have it be a single pag application 
-* see all tabs with corresponding routes 
+(done) * see the route i am visiting in the url bar
+(done) * have it be a single pag application 
+(done) * see all tabs with corresponding routes 
 /home /routines /my routines /activities /login + register
 
-** unregistered user **
-* see a sign in/sign up form on the header, footer, tab, or a modal
-* be able to sign up with a valid username and password that are at least 8 characters long 
-* see the messages if their are any errors with the login process 
+** unregistered user ** 
+(done) * see a sign in/sign up form on the header, footer, tab, or a modal 
+(done) * be able to sign up with a valid username and password that are at least 8 characters long 
+(done) * see the messages if their are any errors with the login process 
 * see tabbed navigation for routines activites with matching routes *
 
 ** registerd user on my routines tab **
-* be able to log in with my username and password succesfully 
-* see if i messed up typing my username or my password 
-* stay logged in even if i leave the website 
-* be able to log out of my account with a simple button 
+(done) * be able to log in with my username and password succesfully 
+(done) * see if i messed up typing my username or my password 
+(done) * stay logged in even if i leave the website (done)
+(done) * be able to log out of my account with a simple button 
 * see tabs for routines, myroutines once logged in, and activities with matching routes *
 
 ** any user on my routines tab**
@@ -30,3 +30,6 @@
 
 * registerd user on the activities tab *
 * be able to edit an existing activitiy, and update the description regardless of who owns it * -->
+
+
+
