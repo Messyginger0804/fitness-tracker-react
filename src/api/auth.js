@@ -45,35 +45,35 @@ export const login = async (username, password) => {
     }
 };
 
-export const submitRoutines = async (title, desc, price, location, deliver, { token, routines, setRoutines }) => {
-    try {
-        console.log(token);
-        const response = await fetch(`${api} / routines`)
-        {
-            method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-            }
-            body: JSON.stringify({
-                routines: {
-                    title: `${title}`,
-                    description: `${desc}`,
-                    price: `${price}`,
-                    location: `${location}`,
-                    willDeliver: `${deliver}`
-                }
-            }),
-            });
-        const reply = await fetch(api)
-        const rep = await reply.json();
-        setPosts(rep.data.posts);
-        const { success } = await response.json();
-        return success;
-    } catch (error) {
-        console.error(error);
-    }
-}
+// export const submitRoutines = async (title, desc, price, location, deliver, { token, routines, setRoutines }) => {
+//     try {
+//         console.log(token);
+//         const response = await fetch(`${api} / routines`)
+//         {
+//             method: 'POST',
+//                 headers: {
+//                 'Content-Type': 'application/json',
+//                     'Authorization': `Bearer ${token}`
+//             }
+//             body: JSON.stringify({
+//                 routines: {
+//                     title: `${title}`,
+//                     description: `${desc}`,
+//                     price: `${price}`,
+//                     location: `${location}`,
+//                     willDeliver: `${deliver}`
+//                 }
+//             }),
+//             });
+//         const reply = await fetch(api)
+//         const rep = await reply.json();
+//         setPosts(rep.data.posts);
+//         const { success } = await response.json();
+//         return success;
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 
 export const deletePost = async (token, postId, setPosts) => {
     try {
