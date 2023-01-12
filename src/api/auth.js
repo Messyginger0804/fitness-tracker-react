@@ -27,22 +27,18 @@ export const registerUser = async (username, password) => {
 export const login = async (username, password) => {
     try {
         const response = await fetch(
-            api,
+            `${api}/users/login`,
             {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    user: {
-                        username,
-                        password
-                    }
+                    username,
+                    password
                 })
             });
-        const {
-            data: { token },
-        } = await response.json();
+        const { token } = await response.json();
         return token;
     } catch (error) {
         console.error(error);
@@ -52,22 +48,22 @@ export const login = async (username, password) => {
 export const submitRoutines = async (title, desc, price, location, deliver, { token, routines, setRoutines }) => {
     try {
         console.log(token);
-        const response = await fetch(api,
-            {
-                method: 'POST',
+        const response = await fetch(`${api} / routines`)
+        {
+            method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    routines: {
-                        title: `${title}`,
-                        description: `${desc}`,
-                        price: `${price}`,
-                        location: `${location}`,
-                        willDeliver: `${deliver}`
-                    }
-                }),
+            }
+            body: JSON.stringify({
+                routines: {
+                    title: `${title}`,
+                    description: `${desc}`,
+                    price: `${price}`,
+                    location: `${location}`,
+                    willDeliver: `${deliver}`
+                }
+            }),
             });
         const reply = await fetch(api)
         const rep = await reply.json();
@@ -115,6 +111,24 @@ export const getUserId = async (token) => {
         console.error(error);
     }
 }
+
+// export const getAllActivities = async (token) => {
+//     try {
+//         const response = await fetch(`${api}/activities`, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 // 'Authorization': `Bearer ${token}`
+//             },
+//         });
+//         const {
+//             data: { activities },
+//         } = await response.json();
+//         return activities;
+//     } catch (err) {
+//         console.error("Whelp, guess I can't find those posts. Sorry bout that", err)
+//     }
+// }
 
 
 
