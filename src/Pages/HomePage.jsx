@@ -4,6 +4,7 @@ import LogMeOut from '../components/LogMeOut';
 // import PostForm from '../components/PostForm';
 
 const Home = ({ token, posts, setPosts, userId, setToken }) => {
+    console.log(token, "testing mege")
     return (
         <>
             {token &&
