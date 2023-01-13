@@ -6,13 +6,13 @@ const RoutinesView = ({ token }) => {
 
     useEffect(() => {
         fetch(
-            `${api}/`
+            `${api}/:username/routines`
             , {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
             .then(result => result.json())
             .then(
                 (result) => {
