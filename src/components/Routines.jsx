@@ -16,18 +16,24 @@ const Routines = ({ token, userId }) => {
         const getRoutine = async () => {
             try {
                 const routines = await fetchRoutines()
-                setRoutines(routines)
+                setRoutines(routines);
             } catch (error) {
                 console.error(error)
             }
         }
-        getRoutine()
+        getRoutine();
     }, [])
 
     const filteredroutines = routines.filter(routine => routine.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <>
+        <><input
+            className="search"
+            placeholder="Search for activities by name"
+            value={searchTerm}
+            type="text"
+            onChange={(e) => setSearchTerm(e.target.value)}
+        ></input>
             <div className="routines-container">
                 {filteredroutines.map(routines => (
                     <div key={routines?.id} className="single-item-card">

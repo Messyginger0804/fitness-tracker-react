@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from "react";
 import api from "../api/auth";
+import { getRoutinesByUser } from "../api/routines";
 
-const RoutinesView = ({ token }) => {
+
+const RoutinesView = ({ token, userId }) => {
     const [personalRoutines, setpersonalRoutines] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [routines, setRoutines] = useState([]);
 
     useEffect(() => {
-        fetch(
-            `${api}/:username/routines`
-            , {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(result => result.json())
-            .then(
-                (result) => {
-                    setpersonalRoutines(result.data.routines);
-                    console.log(result.data.routines);
-                },
-                (error) => {
-                    console.log(error);
-                }
-            )
+
+        const getUsersRoutine = async () => {
+            try {
+                const routines = await getRoutinesByUser()
+                setRoutines(routines);
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getUsersRoutine();
     }, [])
 
+    // 'Authorization': `Bearer ${token}`
     return (
         <div className="personal-routines-container">
-            <h3>My routines:</h3>
             {personalRoutines.map(routines => (
                 <div key={routines._id} className="single-item-card">
                     <div className="header-info">

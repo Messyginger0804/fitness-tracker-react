@@ -13,12 +13,12 @@ const Home = ({ token, posts, setPosts, userId, setToken }) => {
                     token={token}
                     setToken={setToken} />
             }
-            <Routines 
+            {/* <Routines 
             token={ token } 
             routines={ posts } 
             setPosts={ setPosts }
             userId={ userId }
-        />
+        /> */}
             {/* { token &&
         <PostForm 
             token={ token } 
