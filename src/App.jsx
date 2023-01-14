@@ -11,6 +11,7 @@ import Routines from "./components/Routines";
 import Activities from "./Pages/Activities";
 import MyRoutines from "./Pages/MyRoutines";
 
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(null);
@@ -48,8 +49,9 @@ function App() {
         }
 
         {token &&
-          <Route path='myroutines' element={<MyRoutines token={token} setToken={setToken} />} />
+          <Route path='myroutines' element={<MyRoutines  />} />
         }
+
         <Route path='*' element={<Navigate replace to='/' />}
 
         // {!token &&

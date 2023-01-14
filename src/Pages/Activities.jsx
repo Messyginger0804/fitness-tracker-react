@@ -44,12 +44,12 @@ const Activities = ({ token, userId }) => {
                             <form onSubmit={async (e) => {
                                 e.preventDefault();
 
-                                deleteRoutine(token, activities?.id, setactivities);
+                                deleteRoutine(token, activities?.id, setActivities);
                             }}>
                                 <button type="submit">Delete routine</button>
                             </form>
                         }
-
+                       
                     </div>
                 </div>
             ))}
@@ -57,5 +57,7 @@ const Activities = ({ token, userId }) => {
         </>
     )
 }
+
+
 
 export default Activities;

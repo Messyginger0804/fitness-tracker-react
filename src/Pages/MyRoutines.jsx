@@ -2,6 +2,7 @@
 import RoutinesView from "../components/RoutinesView";
 import LogMeOut from "../components/LogMeOut";
 
+
 const MyRoutines = ({ token, setToken }) => {
   return (
     <div className="profile_page">
@@ -16,5 +17,7 @@ const MyRoutines = ({ token, setToken }) => {
     </div>
   );
 };
+
+
 
 export default MyRoutines;

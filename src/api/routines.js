@@ -18,12 +18,16 @@ export const fetchRoutines = async () => {
     }
 }
 
-export const getRoutinesByUser = async () => {
+export const getRoutinesByUser = async (username) => {
     try {
         const response = await fetch(
-            `${api}/users/:username/routines`, {
+            `${api}/users/${localStorage.getItem('username')}/routines`, {
+
+            method: 'GET',
+
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
         }
         );

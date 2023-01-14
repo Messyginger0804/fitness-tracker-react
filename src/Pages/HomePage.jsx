@@ -2,10 +2,9 @@ import React from 'react';
 import Posts from '../components/Routines';
 import LogMeOut from '../components/LogMeOut';
 import Routines from '../components/Routines';
-// import PostForm from '../components/PostForm';
+import PostForm from '../components/PostForm';
 
 const Home = ({ token, posts, setPosts, userId, setToken }) => {
-    console.log(token, "testing mege")
     return (
         <>
             {token &&
@@ -19,13 +18,13 @@ const Home = ({ token, posts, setPosts, userId, setToken }) => {
             setPosts={ setPosts }
             userId={ userId }
         /> */}
-            {/* { token &&
+            { token &&
         <PostForm 
             token={ token } 
             posts={ posts } 
             setPosts={ setPosts }
         />
-    } */}
+    }
         </>
     );
 };

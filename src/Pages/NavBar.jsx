@@ -21,10 +21,10 @@ const Navbar = ({ token }) => {
           <NavLink to='/activities'>Activities   </NavLink>
         }
         {token &&
-          <NavLink to='/myroutines'>MyRoutines  </NavLink>
+          <NavLink to='/myroutines'>My Routines  </NavLink>
         }
         {token &&
-          <NavLink to='/myactivities'>MyActivities  </NavLink>
+          <NavLink to='/activities'>Activities  </NavLink>
         }
       </nav>
     </div>

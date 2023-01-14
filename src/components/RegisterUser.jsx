@@ -24,10 +24,12 @@ const Register = ({ setToken }) => {
                             setToken(token);
                             console.log(token);
                             localStorage.setItem("token", token);
+                            localStorage.setItem("username", username);
                             setUsername("");
                             setPassword("");
                             setPasswordAuth("");
                             setPasswordError("");
+                            
                         } else {
                             e.preventDefault();
                             setPasswordError("Error: Passwords do not match.")
