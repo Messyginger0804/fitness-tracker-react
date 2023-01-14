@@ -22,7 +22,6 @@ const LogMeIn = ({setToken, setUserId}) => {
                onSubmit={async (e) => {
                 try {
                     e.preventDefault();
-                    console.log(password, username);
                     const token = await login(username, password);
                     if (!token) {
                         setPasswordError("Username/Password do not match. Please check your spelling and try again.");
@@ -31,8 +30,10 @@ const LogMeIn = ({setToken, setUserId}) => {
                     const userId = await getUserId(token);
                     setUserId(userId);
                     localStorage.setItem("token", token);
+                    localStorage.setItem("username", username);
                     setUsername("");
                     setPassword("");
+                    console.log(token)
                     };
                 }   catch(error)   {
                     console.error()

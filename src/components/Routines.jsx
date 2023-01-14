@@ -29,7 +29,7 @@ const Routines = ({ token, userId }) => {
     return (
         <><input
             className="search"
-            placeholder="Search for activities by name"
+            placeholder="Search"
             value={searchTerm}
             type="text"
             onChange={(e) => setSearchTerm(e.target.value)}
