@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <div>Welcome To Our FitnessTrack.er</div>
-      <Navbar token={token} />
+      <Navbar setToken={setToken} token={token} />
       <Routes>
         <Route path='/'
           element={<Home

@@ -27,13 +27,6 @@ const Activities = ({ token, userId }) => {
 
     return (
         <>
-            {token &&
-                <ActivitiesForm
-                    token={token}
-                    posts={posts}
-                    setPosts={setPosts}
-                />
-            }
             <div className="activities-container">
                 <input
                     className="search"

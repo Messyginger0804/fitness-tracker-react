@@ -28,7 +28,7 @@ const Activities = ({ token, userId }) => {
     return (
         <>
             {token &&
-                <ActivitiesForm
+                <ActivitiesForm //this is the only place we need this
                     token={token}
                 />
             }
