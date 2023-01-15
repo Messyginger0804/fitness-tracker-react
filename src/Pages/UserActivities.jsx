@@ -8,7 +8,7 @@ import ActivitiesForm from "../components/ActivitiesForm";
 const Activities = ({ token, userId }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [activities, setActivities] = useState([]);
-    // console.log(activities)
+    console.log(activities)
 
     useEffect(() => {
 
@@ -27,11 +27,6 @@ const Activities = ({ token, userId }) => {
 
     return (
         <>
-            {token &&
-                <ActivitiesForm //this is the only place we need this
-                    token={token}
-                />
-            }
             <div className="activities-container">
                 <input
                     className="search"

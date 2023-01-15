@@ -32,7 +32,7 @@ export const getRoutinesByUser = async (username) => {
         }
         );
         const data = await response.json();
-        console.log('look here----', data)
+        // console.log('look here----', data)
         return data
 
     } catch (error) {
