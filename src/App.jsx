@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from "./Pages/HomePage";
-import Profile from "./Pages/MyRoutines";
+// import Profile from "./Pages/MyRoutines";
 import Register from "./components/RegisterUser";
 import LogMeIn from "./components/LogMeIn";
 import Navbar from "./Pages/NavBar";
@@ -13,7 +13,6 @@ import MyRoutines from "./Pages/MyRoutines";
 
 
 function App() {
-  const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState('');
 
@@ -29,8 +28,6 @@ function App() {
         <Route path='/'
           element={<Home
             token={token}
-            posts={posts}
-            setPosts={setPosts}
             userId={userId}
             setToken={setToken} />}
         />
@@ -49,14 +46,16 @@ function App() {
         }
 
         {token &&
-          <Route path='myroutines' element={<MyRoutines  />} />
+          <Route path='/myroutines' element={<MyRoutines
+            token={token}
+            userId={userId} />} />
         }
-
+        {token &&
+          <Route path='/activities' element={<Activities
+            token={token}
+            userId={userId} />} />
+        }
         <Route path='*' element={<Navigate replace to='/' />}
-
-        // {!token &&
-        //   <Route path='/routines' element={ <Routines /> } />//not made yet!!!!!
-        // }
         />
 
       </Routes>

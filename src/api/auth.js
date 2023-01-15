@@ -25,23 +25,23 @@ export const registerUser = async (username, password) => {
     }
 };
 
-export const submitPost = async (Name, desc,{token, activities, setActivities}) => {
+export const submitPost = async (Name, desc, { token, activities, setActivities }) => {
     try {
         console.log(token);
-        const response = await fetch(`${api}/activities/${activityId}`, 
-        {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                post:{
-                    Name: `${Name}`,
-                    description: `${desc}`,
-                }
-            }),
-        });
+        const response = await fetch(`${api}/activities/${activityId}`,
+            {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    post: {
+                        Name: `${Name}`,
+                        description: `${desc}`,
+                    }
+                }),
+            });
         const reply = await fetch(`${api}`)
         const rep = await reply.json();
         setActivities(rep.data.activities);
@@ -66,7 +66,7 @@ export const login = async (username, password) => {
                     password
                 })
             });
-        const {token} = await response.json();
+        const { token } = await response.json();
         return token;
     } catch (error) {
         console.error(error);
@@ -154,28 +154,28 @@ export const getUserId = async (token) => {
 
 
 
-export const sendMessage = async (token, postId, message) => {
-    try {
-        const var5 = await fetch(api, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                message: {
-                    content: `${message}`
-                }
-            })
-        })
-        const var6 = await var5.json();
-        console.log(var6.success);
-        console.log(var6.data.message._id);
-        console.log(var6.data.message.content);
-        console.log(var6.data.message.post);
-        console.log(var6.data.message.fromUser);
-    } catch (error) {
-        console.error(error);
-    }
-}
+// export const sendMessage = async (token, postId, message) => {
+//     try {
+//         const var5 = await fetch(api, {
+//             method: "POST",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`
+//             },
+//             body: JSON.stringify({
+//                 message: {
+//                     content: `${message}`
+//                 }
+//             })
+//         })
+//         const var6 = await var5.json();
+//         console.log(var6.success);
+//         console.log(var6.data.message._id);
+//         console.log(var6.data.message.content);
+//         console.log(var6.data.message.post);
+//         console.log(var6.data.message.fromUser);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 export default api

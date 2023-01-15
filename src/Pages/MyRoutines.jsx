@@ -5,12 +5,8 @@ import LogMeOut from "../components/LogMeOut";
 
 const MyRoutines = ({ token, setToken }) => {
   return (
-    <div className="profile_page">
-      {token &&
-        <LogMeOut
-          token={token}
-          setToken={setToken} />
-      }
+    <div className="myRoutines_page">
+
 
       <RoutinesView token={token} />
 

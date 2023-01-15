@@ -8,7 +8,7 @@ import ActivitiesForm from "../components/ActivitiesForm";
 const Activities = ({ token, userId }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [activities, setActivities] = useState([]);
-    // console.log(activities)
+    console.log(activities)
 
     useEffect(() => {
 
@@ -30,6 +30,8 @@ const Activities = ({ token, userId }) => {
             {token &&
                 <ActivitiesForm
                     token={token}
+                    posts={posts}
+                    setPosts={setPosts}
                 />
             }
             <div className="activities-container">

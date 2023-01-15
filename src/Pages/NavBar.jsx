@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LogMeOut from '../components/LogMeOut';
 
-const Navbar = ({ token }) => {
+const Navbar = ({ token, setToken }) => {
   return (
     <div className='header'>
       <nav>
@@ -19,6 +20,8 @@ const Navbar = ({ token }) => {
         {
           !token &&
           <NavLink to='/activities'>Activities   </NavLink>
+        }
+        {token && <LogMeOut token={token} setToken={setToken} />
         }
         {token &&
           <NavLink to='/myroutines'>My Routines  </NavLink>
