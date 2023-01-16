@@ -9,7 +9,7 @@ const Routines = ({ token, userId }) => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [routines, setRoutines] = useState([]);
-    console.log(routines)
+    // console.log(routines)
 
     useEffect(() => {
 
