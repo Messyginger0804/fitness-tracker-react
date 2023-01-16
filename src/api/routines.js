@@ -18,6 +18,37 @@ export const fetchRoutines = async () => {
     }
 }
 
+export const submitRoutinePost = async (Name, desc, { token, routines, setRoutines }) => {
+    try {
+        console.log(token);
+        const response = await fetch(`${api}/routines`,
+            {
+                method: 'POST',
+                headers:JSON.stringify( {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }),
+                body: JSON.stringify({
+                    post: {
+                        id: `${id}`,
+                        Name: `${Name}`,
+                        routineName: `${routineName}`,
+                        routineGoal: `${routineGoal}`,
+                        description: `${desc}`,
+                        isPublic: true
+                }
+                }),
+            });
+        const reply = await fetch(`${api}`)
+        const rep = await reply.json();
+        setRoutines(rep.data.routines);
+        const { success } = await response.json();
+        return success;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const getRoutinesByUser = async (username) => {
     try {
         const response = await fetch(
@@ -32,7 +63,7 @@ export const getRoutinesByUser = async (username) => {
         }
         );
         const data = await response.json();
-        console.log('look here----', data)
+        // console.log('look here----', data)
         return data
 
     } catch (error) {

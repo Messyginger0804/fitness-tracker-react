@@ -1,10 +1,10 @@
 import React from "react";
 
-const LogMeOut = ({token, setToken}) => {
+const LogMeOut = ({ setToken }) => {
 
     return (
         <div className="logout-bar">
-            <button className="logout-button" type="logout" onClick={(()=>{
+            <button className="logout-button" type="logout" onClick={(() => {
                 try {
                     localStorage.removeItem('token');
                     setToken(null);
