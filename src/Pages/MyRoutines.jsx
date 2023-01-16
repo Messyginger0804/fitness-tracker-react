@@ -6,13 +6,11 @@ import RoutinesForm from "../components/RoutinesForm";
 const MyRoutines = ({ token }) => {
   return (
     <div className="myRoutines_page">
+
       {
       token &&
       <RoutinesForm token={token} />
             }      
-      <RoutinesView token={token} />
-
-    </div>
   );
 };
 

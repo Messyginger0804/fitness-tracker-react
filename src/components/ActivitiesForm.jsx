@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { submitPost } from "../api/auth";
+
+import { createActivity } from "../api/auth";
+
 
 
 
@@ -10,7 +12,9 @@ const ActivitiesForm = (token, activities, setActivities) => {
 
   const handleSubmit = (event) => {
     event.preventDefault(); //Stop it from disappearing immediately
-    submitPost(
+
+    createActivity(
+
       Name,
       desc,
       token);
