@@ -1,16 +1,16 @@
 // import PostView from "../components/PostView";
 import RoutinesView from "../components/RoutinesView";
-import LogMeOut from "../components/LogMeOut";
+import RoutinesForm from "../components/RoutinesForm";
 
 
-const MyRoutines = ({ token, setToken }) => {
+const MyRoutines = ({ token }) => {
   return (
     <div className="myRoutines_page">
 
-
-      <RoutinesView token={token} />
-
-    </div>
+      {
+      token &&
+      <RoutinesForm token={token} />
+            }      
   );
 };
 

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-
-import { createActivity } from "../api/auth";
-
+import { submitPost } from "../api/auth";
 
 
 
 
-const ActivitiesForm = (token, activities, setActivities) => {
+const RoutinesForm = (token, activities, setActivities) => {
   const [Name, setName] = useState('');
+  const [routineName, setRoutineName] = useState('');
+  const [routinesGoal, setRoutinesGoal] = useState('');
   const [desc, setDesc] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault(); //Stop it from disappearing immediately
-
-    createActivity(
-
+    submitPost(
       Name,
+      routineName,
+      routinesGoal,
       desc,
       token);
     // // console.log(
@@ -30,6 +30,10 @@ const ActivitiesForm = (token, activities, setActivities) => {
       <form className="submitForm" onSubmit={handleSubmit}>
         <label htmlFor='name'>Name:</label>
         <input className="input" type='text' name='name' value={Name} onChange={(event) => setName(event.target.value)} />
+        <label htmlFor='routineName'>Routine Name:</label>
+        <input className="input" type='text' name='routineName' value={routineName} onChange={(event) => setRoutineName(event.target.value)} />
+        <label htmlFor='routinesGoal'>Routine's Goal:</label>
+        <input className="input" type='text' name='routinesGoal' value={routinesGoal} onChange={(event) => setRoutinesGoal(event.target.value)} />
         <label htmlFor='desc'>Description:</label>
         <input className="input" type='text' name='description' value={desc} onChange={(event) => setDesc(event.target.value)} />
         <button className="input" type='submit'>Submit</button>
@@ -38,4 +42,4 @@ const ActivitiesForm = (token, activities, setActivities) => {
   )
 }
 
-export default ActivitiesForm;
+export default RoutinesForm;

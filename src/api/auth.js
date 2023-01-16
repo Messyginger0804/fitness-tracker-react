@@ -29,6 +29,7 @@ export const createActivity = async (Name, desc, { token, activityId, setActivit
     try {
         // console.log(token);
         const response = await fetch(`${api}/activities`,
+
             {
                 method: 'POST',
                 headers: {
@@ -36,6 +37,7 @@ export const createActivity = async (Name, desc, { token, activityId, setActivit
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
+                
                     activity: {
                         Name: `${Name}`,
                         description: `${desc}`,
@@ -48,6 +50,7 @@ export const createActivity = async (Name, desc, { token, activityId, setActivit
         setActivities(rep.data.activity);
         const success = await response.json();
         console.log(success);
+
         return success;
     } catch (error) {
         console.error(error);
