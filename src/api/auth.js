@@ -25,27 +25,29 @@ export const registerUser = async (username, password) => {
     }
 };
 
-export const submitPost = async (Name, desc, { token, activities, setActivities }) => {
+export const createActivity = async (Name, desc, { token, activityId, setActivities }) => {
     try {
-        console.log(token);
-        const response = await fetch(`${api}/activities/${activityId}`,
+        // console.log(token);
+        const response = await fetch(`${api}/activities`,
             {
-                method: 'PATCH',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    post: {
+                    activity: {
                         Name: `${Name}`,
                         description: `${desc}`,
+                        id: `${activityId}`
                     }
                 }),
             });
-        const reply = await fetch(`${api}`)
-        const rep = await reply.json();
-        setActivities(rep.data.activities);
-        const { success } = await response.json();
+        const data = await fetch(`${api}/activities`)
+        const rep = await data.json();
+        setActivities(rep.data.activity);
+        const success = await response.json();
+        console.log(success);
         return success;
     } catch (error) {
         console.error(error);

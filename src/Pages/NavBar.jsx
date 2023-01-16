@@ -21,9 +21,11 @@ const Navbar = ({ token, setToken }) => {
           !token &&
           <NavLink to='/activities'>Activities   </NavLink>
         }
+
         {token &&
           <LogMeOut token={token} setToken={setToken} />
         }
+
         {token &&
           <NavLink to='/myroutines'>My Routines  </NavLink>
         }
