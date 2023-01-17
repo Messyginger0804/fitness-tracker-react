@@ -17,7 +17,7 @@ export const registerUser = async (username, password) => {
                 }),
             }
         );
-        console.log(response)
+        // console.log(response)
         const { token } = await response.json();
         return token;
     } catch (error) {
@@ -25,7 +25,7 @@ export const registerUser = async (username, password) => {
     }
 };
 
-export const createActivity = async (Name, desc, { token, activityId, setActivities }) => {
+export const createActivity = async (Name, desc, token, activityId, setActivities) => {
     try {
         // console.log(token);
         const response = await fetch(`${api}/activities`,
@@ -37,7 +37,7 @@ export const createActivity = async (Name, desc, { token, activityId, setActivit
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                
+
                     activity: {
                         Name: `${Name}`,
                         description: `${desc}`,

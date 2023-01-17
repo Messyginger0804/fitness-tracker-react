@@ -8,9 +8,10 @@ const MyRoutines = ({ token }) => {
     <div className="myRoutines_page">
 
       {
-      token &&
-      <RoutinesForm token={token} />
-            }      
+        token &&
+        <RoutinesForm token={token} />
+      }
+    </div>
   );
 };
 
