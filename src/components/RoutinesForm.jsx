@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { submitPost } from "../api/auth";
+import { createActivity } from "../api/auth";
 
 
 
@@ -12,7 +12,7 @@ const RoutinesForm = (token, activities, setActivities) => {
 
   const handleSubmit = (event) => {
     event.preventDefault(); //Stop it from disappearing immediately
-    submitPost(
+    createActivity(
       Name,
       routineName,
       routinesGoal,
